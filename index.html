@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+<title>BumperBall</title>
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body onload="game.load();">
+
+<audio id="lost" src="audio/lost.mp3" preload="auto"></audio>
+<audio id="levelup" src="audio/levelup.mp3" preload="auto"></audio>
+<audio id="intro" src="audio/intro.mp3" preload="auto"></audio>
+<audio id="hit" src="audio/hit.mp3" preload="auto"></audio>
+<audio id="bonus" src="audio/bonus.mp3" preload="auto"></audio>
+<audio id="explode" src="audio/explode.mp3" preload="auto"></audio>
+<audio id="gameover" src="audio/gameover.mp3" preload="auto"></audio>
+
+<div id="wrap">
+    <div class="dash dash-top">
+        <h1>Level <span class="level">0</span></h1>
+        <h1>Lives <span class="lives">0</span></h1>
+        <h1>Score <span class="score">0</span></h1>
+        <button id="btn_ingamemenu">Menu</button>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="dash">
+        <!--<h1>Saved <span class="saved">0</span></h1>
+        <h1>Lost <span class="lost">0</span></h1>-->
+    </div>
+
+    <div class="menu" id="ingamemenu">
+        <div class="vspacer"></div>
+        <h2>Paused</h2>
+        <button id="btn_resume">Resume</button>
+        <button class="btn_play">Play Again</button>
+        <button class="btn_home">Home</button>
+        <!--<button class="btn_mute">Sound On</button>-->
+    </div>
+
+    <div class="menu" id="start">
+        <div class="vspacer"></div>
+        <img class="logo" src="logo.png">
+        <button class="btn_play">Play</button>
+        <button id="btn_scoreboard">High Scores</button>
+        <!--<button class="btn_mute">Sound On</button>
+        <button id="btn_tut">Tutorial</button>-->
+    </div>
+
+    <div class="menu" id="difficulty">
+        <div class="vspacer"></div>
+        <h2>Difficulty</h2>
+        <button id="btn_difficulty2">Hard</button>
+        <button id="btn_difficulty1">Normal</button>
+        <button id="btn_difficulty0">Easy</button>
+    </div>
+
+    <div class="menu" id="gameover">
+        <div class="vspacer"></div>
+        <h2>Game Over</h2>
+        <h3>Score: <span class="score">0</span></h3>
+        <!--
+        <p>
+            Level: <span class="level">0</span><br>
+            Saved: <span class="saved">0</span><br>
+            Lost: <span class="lost">0</span>
+        </p>
+        -->
+        <div id="post_score_form">
+            <h3>You have a High Score!</h3>
+            <div class="inputWrap">
+                <input type="text" id="nameInput0" maxlength="1">
+                <input type="text" id="nameInput1" maxlength="1">
+                <input type="text" id="nameInput2" maxlength="1">
+                <div style="clear:both"></div>
+            </div>
+            <button id="post_score">Submit</button>
+        </div>
+        <button class="btn_play">Play Again</button>
+        <button class="btn_home">Home</button>
+    </div>
+
+    <div class="menu" id="scoreboard">
+        <div class="vspacer"></div>
+        <h2>High Scores</h2>
+        <h3>Top Score <span id="highestScoreDiv"></span></h3>
+        <img class="load" src="load.gif" />
+        <table id="leaderboardTable" cellspacing="0" cellpadding="0"></table>
+        <button class="btn_home">Home</button>
+    </div>
+    <div class="overlay"></div>
+</div>
+
+<script type="text/javascript" src="cordova-2.5.0.js"></script>
+<script type="text/javascript" src="zepto.min.js"></script>
+<script type="text/javascript" src="firebase.js"></script>
+<script type="text/javascript" src="game.base.js"></script>
+<script type="text/javascript" src="game.util.js"></script>
+<script type="text/javascript" src="game.ball.js"></script>
+<script type="text/javascript" src="game.tango.js"></script>
+<script type="text/javascript" src="game.bonus.js"></script>
+<script type="text/javascript" src="game.particle.js"></script>
+<script type="text/javascript" src="game.events.js"></script>
+<script type="text/javascript" src="game.animate.js"></script>
+<script type="text/javascript" src="game.scoreboard.js"></script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2411695-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
+
