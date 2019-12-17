@@ -66,7 +66,7 @@ var game = {
         mouseIsDown: 0,
         dragging: false,
         len: 0,
-	    canX: [], 
+	    canX: [],
 	    canY: [],
         balls: [],
         tangos: [],
@@ -116,7 +116,7 @@ var game = {
                 });
                 game.can.width = w;
                 game.can.height = h;
-                
+
                 game.cfg.bar.x = game.can.width / 2;
                 game.cfg.bar.y = game.can.height / 1.30;
                 game.cfg.bar.w = game.can.width / 2.8;
@@ -128,6 +128,11 @@ var game = {
 
                 game.cfg.bonus.w = game.can.width / 18 * 2;
             };
+
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            document.querySelector('html').classList.add('mobile')
+        }
 
         game.ctx = game.can.getContext('2d');
         setDimensions();
@@ -193,7 +198,7 @@ var game = {
             opt.RESTART_COUNT += opt.NUM_BALLS;
 
             game.hitFlash('#112E84');
-            game.cfg.$level.html(opt.LEVEL);   
+            game.cfg.$level.html(opt.LEVEL);
             game.buildBalls();
             game.util.storage('write', 'optstate', opt);
             game.util.sound('levelup');
